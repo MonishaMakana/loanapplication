@@ -1,0 +1,41 @@
+﻿Loan Application Test Plan
+
+Files:
+- loan-app.xhtml
+- style.css
+- test.txt
+
+Purpose:
+This project now uses only three files and avoids .html, .js, .php extensions.
+
+Manual Test Steps:
+1. Open loan-app.xhtml in your browser.
+2. Select a loan type and click Next.
+3. Enter valid Personal Information: Full Name, DOB, Email, Phone, PAN, Aadhaar.
+4. Enter valid Address details and verify City autocomplete suggestions.
+5. Enter Loan Details and ensure conditional fields appear for Home and Business loans.
+6. Enter Employment or Business details and verify business registration/GST fields only appear when required.
+7. Upload income, identity, and address documents via drag-and-drop or click.
+8. Draw a signature on the canvas and clear if needed.
+9. Accept Terms and Data Consent, then submit.
+10. Verify the summary and pre-approval section displays an approval badge.
+
+Validation Checklist:
+- Step navigation works across all 8 steps.
+- Real-time validation error messages appear under invalid fields.
+- PAN accepts values like AAABP1234A and rejects invalid formats.
+- Aadhaar accepts values like 1234 5678 9012.
+- Postal code validation requires 6 digits.
+- Loan amount is limited between ₹50,000 and ₹50,00,000.
+- Home loan property field appears only for Home loans.
+- Business turnover field appears only for Business loans.
+- Business registration and GST fields are only required for Business employment type.
+- Documents accepted: PDF, JPG, PNG, max 5MB.
+- Signature capture works and can be cleared.
+- Auto-save indicator updates after 10 seconds and reload restores form values.
+- Summary page shows loan type, personal details, pre-approval status, and uploaded document counts.
+
+Notes:
+- The application logic is embedded in loan-app.xhtml.
+- style.css contains all styling.
+- test.txt documents the current test plan and operation instructions.

@@ -1,0 +1,1133 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Loan Application</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Multi-Step Loan Application</h1>
+            <p>Fast, Secure, and Simple</p>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="steps-container">
+            <div class="step-indicator active" data-step="1">
+                <div class="step-number">1</div>
+                <div class="step-name">Loan Type</div>
+            </div>
+            <div class="step-indicator" data-step="2">
+                <div class="step-number">2</div>
+                <div class="step-name">Personal Info</div>
+            </div>
+            <div class="step-indicator" data-step="3">
+                <div class="step-number">3</div>
+                <div class="step-name">Address</div>
+            </div>
+            <div class="step-indicator" data-step="4">
+                <div class="step-number">4</div>
+                <div class="step-name">Loan Details</div>
+            </div>
+            <div class="step-indicator" data-step="5">
+                <div class="step-number">5</div>
+                <div class="step-name">Employment</div>
+            </div>
+            <div class="step-indicator" data-step="6">
+                <div class="step-number">6</div>
+                <div class="step-name">Documents</div>
+            </div>
+            <div class="step-indicator" data-step="7">
+                <div class="step-number">7</div>
+                <div class="step-name">E-Signature</div>
+            </div>
+            <div class="step-indicator" data-step="8">
+                <div class="step-number">8</div>
+                <div class="step-name">Summary</div>
+            </div>
+        </div>
+
+        <form id="loanForm">
+            <!-- Step 1: Loan Type -->
+            <div class="form-step active" data-step="1">
+                <h2>Select Loan Type</h2>
+                <div class="info-box">Choose the type of loan that best suits your needs</div>
+                <div class="form-group">
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="loanType" value="personal" required="required" />
+                            <span>Personal Loan</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="loanType" value="home" />
+                            <span>Home Loan</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="loanType" value="business" />
+                            <span>Business Loan</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Personal Information -->
+            <div class="form-step" data-step="2">
+                <h2>Personal Information</h2>
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" name="fullName" data-validate="name" required="required" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Date of Birth *</label>
+                    <input type="date" name="dob" data-validate="dob" required="required" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" name="email" data-validate="email" required="required" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" name="phone" data-validate="phone" required="required" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>PAN *</label>
+                    <input type="text" name="pan" data-validate="pan" placeholder="AAABP1234A" required="required" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Aadhaar Number *</label>
+                    <input type="text" name="aadhaar" data-validate="aadhaar" placeholder="1234 5678 9012" required="required" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="info-box">
+                    PAN and Aadhaar will be verified with government databases
+                </div>
+            </div>
+
+            <!-- Step 3: Address -->
+            <div class="form-step" data-step="3">
+                <h2>Address Information</h2>
+                <div class="form-group">
+                    <label>Street Address *</label>
+                    <input type="text" name="street" data-validate="required" required="required" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>City *</label>
+                    <input type="text" name="city" id="cityInput" data-validate="required" required="required" list="citySuggestions" />
+                    <datalist id="citySuggestions"></datalist>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>State *</label>
+                    <select name="state" data-validate="required" required="required">
+                        <option value="">Select State</option>
+                        <option value="ap">Andhra Pradesh</option>
+                        <option value="ar">Arunachal Pradesh</option>
+                        <option value="as">Assam</option>
+                        <option value="br">Bihar</option>
+                        <option value="ct">Chhattisgarh</option>
+                        <option value="dl">Delhi</option>
+                        <option value="ga">Goa</option>
+                        <option value="gj">Gujarat</option>
+                        <option value="hr">Haryana</option>
+                        <option value="hp">Himachal Pradesh</option>
+                        <option value="jk">Jammu &amp; Kashmir</option>
+                        <option value="jh">Jharkhand</option>
+                        <option value="ka">Karnataka</option>
+                        <option value="kl">Kerala</option>
+                        <option value="mp">Madhya Pradesh</option>
+                        <option value="mh">Maharashtra</option>
+                        <option value="mn">Manipur</option>
+                        <option value="ml">Meghalaya</option>
+                        <option value="mz">Mizoram</option>
+                        <option value="nl">Nagaland</option>
+                        <option value="od">Odisha</option>
+                        <option value="pb">Punjab</option>
+                        <option value="rj">Rajasthan</option>
+                        <option value="sk">Sikkim</option>
+                        <option value="tn">Tamil Nadu</option>
+                        <option value="tg">Telangana</option>
+                        <option value="tr">Tripura</option>
+                        <option value="up">Uttar Pradesh</option>
+                        <option value="uk">Uttarakhand</option>
+                        <option value="wb">West Bengal</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Postal Code *</label>
+                    <input type="text" name="postalCode" data-validate="postalCode" required="required" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Country *</label>
+                    <input type="text" name="country" value="India" data-validate="required" required="required" />
+                    <div class="error-message"></div>
+                </div>
+            </div>
+
+            <!-- Step 4: Loan Details -->
+            <div class="form-step" data-step="4">
+                <h2>Loan Details</h2>
+                <div class="form-group">
+                    <label>Loan Amount *</label>
+                    <input type="number" name="loanAmount" data-validate="loanAmount" min="50000" max="5000000" required="required" />
+                    <div class="error-message"></div>
+                    <small>Minimum: 50,000 | Maximum: 50,00,000</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Loan Tenure (Years) *</label>
+                    <input type="number" name="tenure" data-validate="tenure" min="1" max="20" required="required" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Purpose of Loan *</label>
+                    <select name="loanPurpose" data-validate="required" required="required">
+                        <option value="">Select Purpose</option>
+                        <option value="debt-consolidation">Debt Consolidation</option>
+                        <option value="education">Education</option>
+                        <option value="vehicle">Vehicle Purchase</option>
+                        <option value="home-improvement">Home Improvement</option>
+                        <option value="medical">Medical Expenses</option>
+                        <option value="travel">Travel</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Annual Income *</label>
+                    <input type="number" name="annualIncome" data-validate="annualIncome" min="100000" required="required" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="conditional-field" id="homeField" style="margin-top: 20px;">
+                    <label>Property Value *</label>
+                    <input type="number" name="propertyValue" data-validate="number" min="500000" />
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="conditional-field" id="businessField" style="margin-top: 20px;">
+                    <label>Business Annual Turnover *</label>
+                    <input type="number" name="businessTurnover" data-validate="number" min="500000" />
+                    <div class="error-message"></div>
+                </div>
+            </div>
+
+            <!-- Step 5: Employment/Business Info -->
+            <div class="form-step" data-step="5">
+                <h2>Employment / Business Information</h2>
+                <div id="employmentSection">
+                    <div class="form-group">
+                        <label>Employment Type *</label>
+                        <select name="employmentType" data-validate="required" required="required">
+                            <option value="">Select Type</option>
+                            <option value="salaried">Salaried</option>
+                            <option value="self-employed">Self-Employed</option>
+                            <option value="business">Business Owner</option>
+                        </select>
+                        <div class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Employer/Company Name *</label>
+                        <input type="text" name="employer" data-validate="required" required="required" />
+                        <div class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Designation *</label>
+                        <input type="text" name="designation" data-validate="required" required="required" />
+                        <div class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Years of Experience *</label>
+                        <input type="number" name="experience" data-validate="number" min="0" max="80" required="required" />
+                        <div class="error-message"></div>
+                    </div>
+
+                    <div class="conditional-field" id="businessInfoField" style="margin-top: 20px;">
+                        <label>Business Registration Number *</label>
+                        <input type="text" name="businessReg" data-validate="required" />
+                        <div class="error-message"></div>
+                        
+                        <label style="margin-top: 15px;">GST Number *</label>
+                        <input type="text" name="gstNumber" data-validate="gst" />
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6: Documents -->
+            <div class="form-step" data-step="6">
+                <h2>Document Upload</h2>
+                <div class="info-box">
+                    Upload required documents. Supported formats: PDF, JPG, PNG (Max 5MB each)
+                </div>
+
+                <div class="form-group">
+                    <label>Income Proof (Salary Slip/ITR) *</label>
+                    <div class="document-upload-area" data-doc-type="income">
+                        <p>ðŸ“„ Drag and drop files here or click to browse</p>
+                        <small>PDF, JPG, PNG - Max 5MB</small>
+                        <input type="file" name="incomeProof" style="display: none;" accept=".pdf,.jpg,.jpeg,.png" />
+                    </div>
+                    <div class="document-list" id="incomeList"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Identity Proof *</label>
+                    <div class="document-upload-area" data-doc-type="identity">
+                        <p>ðŸ“„ Drag and drop files here or click to browse</p>
+                        <small>PDF, JPG, PNG - Max 5MB</small>
+                        <input type="file" name="identityProof" style="display: none;" accept=".pdf,.jpg,.jpeg,.png" />
+                    </div>
+                    <div class="document-list" id="identityList"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Address Proof *</label>
+                    <div class="document-upload-area" data-doc-type="address">
+                        <p>ðŸ“„ Drag and drop files here or click to browse</p>
+                        <small>PDF, JPG, PNG - Max 5MB</small>
+                        <input type="file" name="addressProof" style="display: none;" accept=".pdf,.jpg,.jpeg,.png" />
+                    </div>
+                    <div class="document-list" id="addressList"></div>
+                </div>
+            </div>
+
+            <!-- Step 7: E-Signature -->
+            <div class="form-step" data-step="7">
+                <h2>E-Signature Capture</h2>
+                <div class="info-box">
+                    Please sign below to confirm your loan application
+                </div>
+                <div class="form-group">
+                    <label>Signature *</label>
+                    <div class="canvas-container">
+                        <canvas id="signatureCanvas" width="800" height="200"></canvas>
+                    </div>
+                    <div style="margin-top: 10px; text-align: center;">
+                        <button type="button" class="btn-secondary btn-small">Clear Signature</button>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="termsAndConditions" required="required" />
+                        <span>I agree to the Terms and Conditions *</span>
+                    </label>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-option">
+                        <input type="checkbox" name="dataConsent" required="required" />
+                        <span>I consent to data processing and verification *</span>
+                    </label>
+                    <div class="error-message"></div>
+                </div>
+            </div>
+
+            <!-- Step 8: Summary &amp; Pre-approval -->
+                <div class="form-step" data-step="8">
+                <h2>Application Summary and Pre-Approval</h2>
+                <div id="summaryContent"></div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="form-container" style="background: #f8f9fa; padding: 20px; margin-top: 0;">
+                <div class="button-group">
+                    <button type="button" class="btn-secondary" id="prevBtn" style="display: none;">Previous</button>
+                    <button type="button" class="btn-primary" id="nextBtn">Next</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="auto-save-indicator" id="autoSaveIndicator">
+        <span>Last saved: now</span>
+    </div>
+
+            <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2 style="color: #28a745; margin-bottom: 20px;">Application Submitted Successfully!</h2>
+            <p>Your loan application has been submitted. You will receive an email confirmation shortly.</p>
+            <p style="margin-top: 15px; color: #666; font-size: 14px;">
+                Application ID: <strong id="applicationId"></strong>
+            </p>
+            <button type="button" class="btn-primary" style="margin-top: 20px; width: 100%;">Start New Application</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        // Loan Application Manager
+        class LoanApplication {
+            constructor() {
+                this.currentStep = 1;
+                this.totalSteps = 8;
+                this.formData = this.loadFormData() || {};
+                this.documents = {};
+                this.signatureData = null;
+                this.validateOnChange = true;
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.setupDocumentUpload();
+                this.setupSignatureCanvas();
+                this.setupAutoSave();
+                this.setupAddressAutocomplete();
+                this.restoreFormData();
+                this.updateProgressBar();
+            }
+
+            setupEventListeners() {
+                const form = document.getElementById('loanForm');
+                const nextBtn = document.getElementById('nextBtn');
+                const prevBtn = document.getElementById('prevBtn');
+
+                // Real-time validation
+                form.addEventListener('input', (e) => {
+                    if (this.validateOnChange && e.target.dataset.validate) {
+                        this.validateField(e.target);
+                    }
+                });
+
+                form.addEventListener('change', (e) => {
+                    if (e.target.name === 'loanType') {
+                        this.handleLoanTypeChange(e.target.value);
+                    }
+                    if (e.target.name === 'employmentType') {
+                        this.handleEmploymentTypeChange(e.target.value);
+                    }
+                });
+
+                // Navigation
+                nextBtn.addEventListener('click', () => this.nextStep());
+                prevBtn.addEventListener('click', () => this.prevStep());
+
+                // Step indicators
+                document.querySelectorAll('.step-indicator').forEach(indicator => {
+                    indicator.addEventListener('click', (e) => {
+                        const stepNum = parseInt(e.currentTarget.dataset.step);
+                        if (this.canGoToStep(stepNum)) {
+                            this.goToStep(stepNum);
+                        }
+                    });
+                });
+            }
+
+            setupAddressAutocomplete() {
+                const cityInput = document.getElementById('cityInput');
+                const citySuggestions = document.getElementById('citySuggestions');
+
+                const cities = [
+                    'Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Chennai',
+                    'Kolkata', 'Pune', 'Ahmedabad', 'Jaipur', 'Lucknow',
+                    'Indore', 'Chandigarh', 'Bhopal', 'Surat', 'Nagpur'
+                ];
+
+                if (cityInput) {
+                    cityInput.addEventListener('input', (e) => {
+                        const value = e.target.value.toLowerCase();
+                        citySuggestions.innerHTML = '';
+
+                        if (value.length > 0) {
+                            cities
+                                .filter(city => city.toLowerCase().includes(value))
+                                .slice(0, 5)
+                                .forEach(city => {
+                                    const option = document.createElement('option');
+                                    option.value = city;
+                                    citySuggestions.appendChild(option);
+                                });
+                        }
+                    });
+                }
+            }
+
+            setupDocumentUpload() {
+                document.querySelectorAll('.document-upload-area').forEach(area => {
+                    const docType = area.dataset.docType;
+                    const fileInput = area.querySelector('input[type="file"]');
+
+                    area.addEventListener('click', () => fileInput.click());
+                    area.addEventListener('dragover', (e) => {
+                        e.preventDefault();
+                        area.classList.add('dragover');
+                    });
+                    area.addEventListener('dragleave', () => {
+                        area.classList.remove('dragover');
+                    });
+                    area.addEventListener('drop', (e) => {
+                        e.preventDefault();
+                        area.classList.remove('dragover');
+                        this.handleFileUpload(e.dataTransfer.files, docType);
+                    });
+
+                    fileInput.addEventListener('change', (e) => {
+                        this.handleFileUpload(e.target.files, docType);
+                    });
+                });
+            }
+
+            handleFileUpload(files, docType) {
+                Array.from(files).forEach(file => {
+                    if (this.validateFile(file)) {
+                        this.compressAndStoreFile(file, docType);
+                    }
+                });
+            }
+
+            validateFile(file) {
+                const maxSize = 5 * 1024 * 1024; // 5MB
+                const validTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+
+                if (file.size > maxSize) {
+                    alert('File size exceeds 5MB limit');
+                    return false;
+                }
+                if (!validTypes.includes(file.type)) {
+                    alert('Only PDF, JPG, and PNG files are allowed');
+                    return false;
+                }
+                return true;
+            }
+
+            compressAndStoreFile(file, docType) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    if (file.type.startsWith('image/')) {
+                        this.compressImage(e.target.result, file.name, docType);
+                    } else {
+                        this.storeDocument(e.target.result, file.name, docType);
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+
+            compressImage(dataUrl, fileName, docType) {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+
+                    const maxWidth = 800;
+                    const scale = maxWidth / img.width;
+                    canvas.width = maxWidth;
+                    canvas.height = img.height * scale;
+
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    const compressedData = canvas.toDataURL('image/jpeg', 0.8);
+                    this.storeDocument(compressedData, fileName, docType);
+                };
+                img.src = dataUrl;
+            }
+
+            storeDocument(data, fileName, docType) {
+                if (!this.documents[docType]) {
+                    this.documents[docType] = [];
+                }
+                this.documents[docType].push({ data, name: fileName });
+                this.displayDocuments(docType);
+            }
+
+            displayDocuments(docType) {
+                const listId = {
+                    income: 'incomeList',
+                    identity: 'identityList',
+                    address: 'addressList'
+                }[docType];
+
+                const listElement = document.getElementById(listId);
+                listElement.innerHTML = '';
+
+                if (this.documents[docType]) {
+                    this.documents[docType].forEach((doc, index) => {
+                        const item = document.createElement('div');
+                        item.className = 'document-item';
+                        item.innerHTML = `
+                            <img class="document-preview" src="${doc.data}" alt="${doc.name}" />
+                            <div class="document-name" title="${doc.name}">${doc.name.substring(0, 20)}</div>
+                            <div class="remove-btn" onclick="app.removeDocument('${docType}', ${index})">Remove</div>
+                        `;
+                        listElement.appendChild(item);
+                    });
+                }
+            }
+
+            removeDocument(docType, index) {
+                this.documents[docType].splice(index, 1);
+                this.displayDocuments(docType);
+            }
+
+            setupSignatureCanvas() {
+                const canvas = document.getElementById('signatureCanvas');
+                if (!canvas) return;
+
+                const ctx = canvas.getContext('2d');
+                let isDrawing = false;
+                let lastX = 0;
+                let lastY = 0;
+
+                canvas.addEventListener('mousedown', (e) => {
+                    isDrawing = true;
+                    const rect = canvas.getBoundingClientRect();
+                    lastX = e.clientX - rect.left;
+                    lastY = e.clientY - rect.top;
+                });
+
+                canvas.addEventListener('mousemove', (e) => {
+                    if (!isDrawing) return;
+
+                    const rect = canvas.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    ctx.strokeStyle = '#333';
+                    ctx.lineWidth = 2;
+                    ctx.lineCap = 'round';
+                    ctx.lineJoin = 'round';
+                    ctx.beginPath();
+                    ctx.moveTo(lastX, lastY);
+                    ctx.lineTo(x, y);
+                    ctx.stroke();
+
+                    lastX = x;
+                    lastY = y;
+                });
+
+                canvas.addEventListener('mouseup', () => {
+                    isDrawing = false;
+                    this.signatureData = canvas.toDataURL();
+                });
+
+                canvas.addEventListener('mouseleave', () => {
+                    isDrawing = false;
+                });
+
+                const clearSignatureBtn = canvas.closest('.canvas-container').parentNode.querySelector('button[type="button"]');
+                if (clearSignatureBtn) {
+                    clearSignatureBtn.addEventListener('click', () => {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        this.signatureData = null;
+                    });
+                }
+            }
+
+            setupAutoSave() {
+                setInterval(() => {
+                    this.saveFormData();
+                }, 10000);
+            }
+
+            saveFormData() {
+                const formElement = document.getElementById('loanForm');
+                const formData = new FormData(formElement);
+
+                this.formData = {};
+                for (let [key, value] of formData.entries()) {
+                    this.formData[key] = value;
+                }
+
+                localStorage.setItem('loanFormData', JSON.stringify(this.formData));
+                this.updateAutoSaveIndicator();
+            }
+
+            loadFormData() {
+                const saved = localStorage.getItem('loanFormData');
+                return saved ? JSON.parse(saved) : null;
+            }
+
+            restoreFormData() {
+                if (!this.formData || Object.keys(this.formData).length === 0) return;
+
+                Object.entries(this.formData).forEach(([key, value]) => {
+                    const field = document.querySelector(`[name="${key}"]`);
+                    if (field) {
+                        if (field.type === 'radio' || field.type === 'checkbox') {
+                            field.checked = (field.value === value || value === 'on');
+                        } else {
+                            field.value = value;
+                        }
+                    }
+                });
+
+                if (this.formData.loanType) {
+                    this.handleLoanTypeChange(this.formData.loanType);
+                }
+                if (this.formData.employmentType) {
+                    this.handleEmploymentTypeChange(this.formData.employmentType);
+                }
+            }
+
+            updateAutoSaveIndicator() {
+                const indicator = document.getElementById('autoSaveIndicator');
+                indicator.className = 'auto-save-indicator saved';
+                indicator.innerHTML = '<span>Saved</span>';
+
+                setTimeout(() => {
+                    indicator.className = 'auto-save-indicator';
+                    indicator.innerHTML = '<span>Last saved: now</span>';
+                }, 2000);
+            }
+
+            validateField(field) {
+                const validationType = field.dataset.validate;
+                const value = field.value.trim();
+                const errorElement = field.nextElementSibling;
+
+                if (!validationType) return true;
+
+                let isValid = true;
+                let errorMsg = '';
+
+                const validators = {
+                    required: (val) => val.length > 0 || 'This field is required',
+                    name: (val) => /^[a-zA-Z\s]{3,50}$/.test(val) || 'Enter a valid name (3-50 characters)',
+                    email: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val) || 'Enter a valid email address',
+                    phone: (val) => /^[0-9]{10}$/.test(val) || 'Enter a valid 10-digit phone number',
+                    pan: (val) => /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(val) || 'Enter a valid PAN (e.g., AAABP1234A)',
+                    aadhaar: (val) => /^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$/.test(val) || 'Enter a valid Aadhaar (1234 5678 9012)',
+                    dob: (val) => {
+                        const date = new Date(val);
+                        const age = new Date().getFullYear() - date.getFullYear();
+                        return (age >= 18 && age <= 65) || 'Age must be between 18 and 65 years';
+                    },
+                    postalCode: (val) => /^[0-9]{6}$/.test(val) || 'Enter a valid 6-digit postal code',
+                    loanAmount: (val) => {
+                        const amt = parseInt(val);
+                        return (amt >= 50000 && amt <= 5000000) || 'Loan amount must be between 50,000 and 50,00,000';
+                    },
+                    tenure: (val) => {
+                        const years = parseInt(val);
+                        return (years >= 1 && years <= 20) || 'Tenure must be between 1 and 20 years';
+                    },
+                    annualIncome: (val) => {
+                        const income = parseInt(val);
+                        return income >= 100000 || 'Annual income must be at least 1,00,000';
+                    },
+                    gst: (val) => !val || /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/.test(val) || 'Invalid GST number',
+                    number: (val) => !val || /^[0-9]+$/.test(val) || 'Enter a valid number'
+                };
+
+                if (validators[validationType]) {
+                    const result = validators[validationType](value);
+                    if (result !== true) {
+                        isValid = false;
+                        errorMsg = result;
+                    }
+                }
+
+                field.classList.toggle('error', !isValid);
+                if (errorElement && errorElement.classList.contains('error-message')) {
+                    errorElement.textContent = errorMsg;
+                    errorElement.classList.toggle('show', !isValid);
+                }
+
+                return isValid;
+            }
+
+            validateStep(stepNum) {
+                const stepElement = document.querySelector(`.form-step[data-step="${stepNum}"]`);
+                const fields = stepElement.querySelectorAll('[data-validate]');
+                let isValid = true;
+
+                fields.forEach(field => {
+                    if (!this.validateField(field)) {
+                        isValid = false;
+                    }
+                });
+
+                if (stepNum === 6) {
+                    if (!this.documents.income || !this.documents.identity || !this.documents.address) {
+                        alert('Please upload all required documents');
+                        return false;
+                    }
+                }
+
+                if (stepNum === 7) {
+                    if (!this.signatureData) {
+                        alert('Please sign the form');
+                        return false;
+                    }
+                    const termsCheckbox = document.querySelector('input[name="termsAndConditions"]');
+                    const consentCheckbox = document.querySelector('input[name="dataConsent"]');
+                    if (!termsCheckbox.checked || !consentCheckbox.checked) {
+                        alert('Please accept all terms and conditions');
+                        return false;
+                    }
+                }
+
+                return isValid;
+            }
+
+            handleLoanTypeChange(type) {
+                const homeField = document.getElementById('homeField');
+                const businessField = document.getElementById('businessField');
+
+                if (homeField) homeField.classList.toggle('show', type === 'home');
+                if (businessField) businessField.classList.toggle('show', type === 'business');
+
+                const propertyValue = document.querySelector('input[name="propertyValue"]');
+                const businessTurnover = document.querySelector('input[name="businessTurnover"]');
+
+                if (propertyValue) {
+                    propertyValue.required = type === 'home';
+                    propertyValue.dataset.validate = type === 'home' ? 'number' : '';
+                }
+                if (businessTurnover) {
+                    businessTurnover.required = type === 'business';
+                    businessTurnover.dataset.validate = type === 'business' ? 'number' : '';
+                }
+            }
+
+            handleEmploymentTypeChange(type) {
+                const businessInfoField = document.getElementById('businessInfoField');
+                if (businessInfoField) {
+                    businessInfoField.classList.toggle('show', type === 'business');
+
+                    const businessReg = document.querySelector('input[name="businessReg"]');
+                    const gstNumber = document.querySelector('input[name="gstNumber"]');
+
+                    if (businessReg) businessReg.required = type === 'business';
+                    if (gstNumber) gstNumber.required = type === 'business';
+                }
+            }
+
+            nextStep() {
+                if (this.validateStep(this.currentStep)) {
+                    this.saveFormData();
+                    if (this.currentStep < this.totalSteps) {
+                        this.goToStep(this.currentStep + 1);
+                    } else {
+                        this.submitApplication();
+                    }
+                }
+            }
+
+            prevStep() {
+                if (this.currentStep > 1) {
+                    this.goToStep(this.currentStep - 1);
+                }
+            }
+
+            goToStep(stepNum) {
+                const currentStepElement = document.querySelector(`.form-step[data-step="${this.currentStep}"]`);
+                if (currentStepElement) {
+                    currentStepElement.classList.remove('active');
+                }
+
+                const newStep = document.querySelector(`.form-step[data-step="${stepNum}"]`);
+                if (newStep) {
+                    newStep.classList.add('active');
+                }
+
+                this.currentStep = stepNum;
+                this.updateUI();
+                window.scrollTo(0, 0);
+            }
+
+            updateUI() {
+                document.querySelectorAll('.step-indicator').forEach(indicator => {
+                    const step = parseInt(indicator.dataset.step);
+                    indicator.classList.remove('active', 'completed');
+
+                    if (step === this.currentStep) {
+                        indicator.classList.add('active');
+                    } else if (step < this.currentStep) {
+                        indicator.classList.add('completed');
+                    }
+                });
+
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+
+                prevBtn.style.display = this.currentStep > 1 ? 'block' : 'none';
+                nextBtn.textContent = this.currentStep === this.totalSteps ? 'Submit Application' : 'Next';
+
+                this.updateProgressBar();
+
+                if (this.currentStep === this.totalSteps) {
+                    this.generateSummary();
+                }
+            }
+
+            updateProgressBar() {
+                const progress = (this.currentStep / this.totalSteps) * 100;
+                document.querySelector('.progress-fill').style.width = progress + '%';
+            }
+
+            generateSummary() {
+                const summary = document.getElementById('summaryContent');
+                const formElement = document.getElementById('loanForm');
+                const formData = new FormData(formElement);
+
+                let summaryHTML = '<div class="success-message">All information verified successfully</div>';
+
+                summaryHTML += `
+                    <div class="summary-card">
+                        <h3>Personal Information</h3>
+                        <div class="summary-row">
+                            <span class="summary-label">Full Name:</span>
+                            <span class="summary-value">${formData.get('fullName') || 'N/A'}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Email:</span>
+                            <span class="summary-value">${formData.get('email') || 'N/A'}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Phone:</span>
+                            <span class="summary-value">${formData.get('phone') || 'N/A'}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">PAN:</span>
+                            <span class="summary-value">${formData.get('pan') || 'N/A'}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Aadhaar:</span>
+                            <span class="summary-value">xxxx xxxx ${(formData.get('aadhaar') || '').slice(-4)}</span>
+                        </div>
+                    </div>
+                `;
+
+                summaryHTML += `
+                    <div class="summary-card">
+                        <h3>Address</h3>
+                        <div class="summary-row">
+                            <span class="summary-label">Street:</span>
+                            <span class="summary-value">${formData.get('street') || 'N/A'}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">City:</span>
+                            <span class="summary-value">${formData.get('city') || 'N/A'}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">State:</span>
+                            <span class="summary-value">${formData.get('state') || 'N/A'}</span>
+                        </div>
+                    </div>
+                `;
+
+                summaryHTML += `
+                    <div class="summary-card">
+                        <h3>Loan Details</h3>
+                        <div class="summary-row">
+                            <span class="summary-label">Loan Type:</span>
+                            <span class="summary-value">${this.formatText(formData.get('loanType')) || 'N/A'}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Loan Amount:</span>
+                            <span class="summary-value">${parseInt(formData.get('loanAmount') || 0).toLocaleString('en-IN')}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Tenure:</span>
+                            <span class="summary-value">${formData.get('tenure') || 'N/A'} years</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Annual Income:</span>
+                            <span class="summary-value">${parseInt(formData.get('annualIncome') || 0).toLocaleString('en-IN')}</span>
+                        </div>
+                    </div>
+                `;
+
+                const preApproval = this.calculatePreApproval(formData);
+                const approvalClass = preApproval.approved ? 'approval-success' : 'approval-pending';
+                const approvalText = preApproval.approved ? 'PRE-APPROVED' : 'UNDER REVIEW';
+
+                summaryHTML += `
+                    <div class="summary-card">
+                        <h3>Pre-Approval Status</h3>
+                        <div class="summary-row">
+                            <span class="summary-label">Status:</span>
+                            <span class="approval-badge ${approvalClass}">${approvalText}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Eligible Amount:</span>
+                            <span class="summary-value">${preApproval.eligibleAmount.toLocaleString('en-IN')}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Processing Time:</span>
+                            <span class="summary-value">${preApproval.processingTime}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Interest Rate (Est.):</span>
+                            <span class="summary-value">${preApproval.interestRate}% p.a.</span>
+                        </div>
+                    </div>
+                `;
+
+                summaryHTML += `
+                    <div class="summary-card">
+                        <h3>Documents</h3>
+                        <div class="summary-row">
+                            <span class="summary-label">Income Proof:</span>
+                            <span class="summary-value">${this.documents.income?.length || 0} file(s)</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Identity Proof:</span>
+                            <span class="summary-value">${this.documents.identity?.length || 0} file(s)</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Address Proof:</span>
+                            <span class="summary-value">${this.documents.address?.length || 0} file(s)</span>
+                        </div>
+                    </div>
+                `;
+
+                summary.innerHTML = summaryHTML;
+            }
+
+            calculatePreApproval(formData) {
+                const loanAmount = parseInt(formData.get('loanAmount') || 0);
+                const annualIncome = parseInt(formData.get('annualIncome') || 0);
+                const loanType = formData.get('loanType');
+
+                const maxEligible = (annualIncome * 0.4) / 12;
+                const eligibleAmount = Math.min(loanAmount, maxEligible * 12);
+                const approved = eligibleAmount >= loanAmount * 0.8;
+
+                const interestRates = {
+                    personal: 9.5,
+                    home: 6.8,
+                    business: 11.2
+                };
+
+                return {
+                    approved,
+                    eligibleAmount: Math.round(eligibleAmount),
+                    processingTime: approved ? '24-48 hours' : '5-7 business days',
+                    interestRate: (interestRates[loanType] || 10).toFixed(2)
+                };
+            }
+
+            formatText(text) {
+                if (!text) return '';
+                return text.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            }
+
+            canGoToStep(stepNum) {
+                return stepNum <= this.currentStep + 1;
+            }
+
+            submitApplication() {
+                const applicationId = this.generateApplicationId();
+                localStorage.removeItem('loanFormData');
+                const modal = document.getElementById('successModal');
+                document.getElementById('applicationId').textContent = applicationId;
+                modal.classList.add('show');
+
+                modal.querySelector('button').addEventListener('click', () => {
+                    window.location.reload();
+                });
+
+                console.log('Application Submitted:', {
+                    applicationId,
+                    formData: this.formData,
+                    documents: Object.keys(this.documents),
+                    signature: !!this.signatureData,
+                    timestamp: new Date().toISOString()
+                });
+            }
+
+            generateApplicationId() {
+                const timestamp = Date.now();
+                const random = Math.random().toString(36).substring(2, 8).toUpperCase();
+                return `LOAN-${timestamp}-${random}`;
+            }
+        }
+
+        class LoanApplicationE2ETest {
+            constructor() {
+                this.passed = 0;
+                this.failed = 0;
+            }
+
+            runAllTests() {
+                this.testNavigation();
+                this.testValidation();
+                this.testConditionalFields();
+                this.printResults();
+            }
+
+            testNavigation() {
+                this.assert('Step navigation available', document.querySelectorAll('.step-indicator').length === 8);
+                this.assert('Initial step is visible', document.querySelector('.form-step.active') !== null);
+            }
+
+            testValidation() {
+                this.assert('PAN validation valid', this.validatePAN('AAABP1234A'));
+                this.assert('PAN validation invalid', !this.validatePAN('BADPAN123'));
+                this.assert('Aadhaar validation valid', this.validateAadhaar('1234 5678 9012'));
+                this.assert('Aadhaar validation invalid', !this.validateAadhaar('123456789012'));
+            }
+
+            testConditionalFields() {
+                const homeField = document.getElementById('homeField');
+                const businessField = document.getElementById('businessField');
+                this.assert('Home and business fields exist', homeField !== null && businessField !== null);
+            }
+
+            validatePAN(value) {
+                return /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(value);
+            }
+
+            validateAadhaar(value) {
+                return /^[0-9]{4}\s[0-9]{4}\s[0-9]{4}$/.test(value);
+            }
+
+            assert(name, result) {
+                if (result) {
+                    console.log(name);
+                    this.passed++;
+                } else {
+                    console.error(name);
+                    this.failed++;
+                }
+            }
+
+            printResults() {
+                console.log(`Tests completed: ${this.passed} passed, ${this.failed} failed.`);
+            }
+        }
+
+        const app = new LoanApplication();
+        window.app = app;
+
+        if (window.location.search.includes('test')) {
+            const testSuite = new LoanApplicationE2ETest();
+            testSuite.runAllTests();
+        }
+        //]]>
+    </script>
+</body>
+</html>
+
+
+
